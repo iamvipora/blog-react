@@ -21,7 +21,7 @@ function View() {
   }, [APIData])
 
   const getData = () => {
-    axios.get(`http://localhost:3000/post/${id}`)
+    axios.get(import.meta.env.SERVER_URL+`/post/${id}`)
       .then((response) => {
         setAPIData(response.data)
         console.log(response.data)
@@ -49,7 +49,7 @@ function View() {
   }
 
   const handleDelete = () => {
-    axios.delete(`http://localhost:3000/post/${id}`)
+    axios.delete(import.meta.env.SERVER_URL+`/post/${id}`)
       .then(() => navigate('/home'))
       .catch((error) => console.error(error))
   }
@@ -58,7 +58,7 @@ function View() {
     e.preventDefault()
     e.stopPropagation()
     
-    axios.patch(`http://localhost:3000/post/${id}`, APIData)
+    axios.patch(import.meta.env.SERVER_URL+`/post/${id}`, APIData)
       .then(() => navigate('/home'))
       .catch((error) => console.error(error))
   }

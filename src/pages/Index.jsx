@@ -20,7 +20,7 @@ function Index() {
 
     const formData = new FormData(e.currentTarget)
     const userName = formData.get("userName")
-    axios.post('http://localhost:3000/user', {
+    axios.post(import.meta.env.SERVER_URL+'/user', {
       userName
     })
     .then((res) => {
