@@ -20,7 +20,7 @@ function Index() {
 
     const formData = new FormData(e.currentTarget)
     const userName = formData.get("userName")
-    axios.post('https://blog-express-wb0z.onrender.com/user', {
+    axios.post(import.meta.env.VITE_SERVER_URL+'/user', {
       userName
     })
     .then((res) => {
