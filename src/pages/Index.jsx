@@ -20,7 +20,7 @@ function Index() {
 
     const formData = new FormData(e.currentTarget)
     const userName = formData.get("userName")
-    axios.post(import.meta.env.SERVER_URL+'/user', {
+    axios.post(import.meta.env.VITE_SERVER_URL+'/user', {
       userName
     })
     .then((res) => {
@@ -51,6 +51,7 @@ function Index() {
               value={userName}
               type="text" 
               autoComplete='off'
+              maxLength={16}
               className="bg-transparent w-full border-b text-2xl md:text-5xl xl:text-6xl border-orange-900 focus:border-orange-400 mr-3 py-1 px-2 leading-tight focus:outline-none"
             />
             {userName.length > 0 

@@ -6,7 +6,7 @@ const DeleteModal = (props) => {
   const navigate = useNavigate()
 
   const deleteAccount = () => {
-    axios.delete(import.meta.env.SERVER_URL+`/user/${localStorage.getItem('id')}`)
+    axios.delete(import.meta.env.VITE_SERVER_URL+`:3000/user/${localStorage.getItem('id')}`)
     .then(() => {
       localStorage.removeItem('userName')
       localStorage.removeItem('id')
