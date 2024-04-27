@@ -7,7 +7,7 @@ function Feed() {
   const [APIData, setAPIData] = useState([])
 
   useEffect(() => {
-    axios.get(import.meta.env.VITE_SERVER_URL+':3000/feed')
+    axios.get(import.meta.env.VITE_SERVER_URL+'/feed')
       .then((response) => {
         setAPIData(response.data)
       })

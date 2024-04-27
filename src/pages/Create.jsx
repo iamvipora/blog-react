@@ -24,7 +24,7 @@ function Create() {
     e.preventDefault()
     e.stopPropagation()
 
-    axios.post(import.meta.env.VITE_SERVER_URL+':3000/post', postData)
+    axios.post(import.meta.env.VITE_SERVER_URL+'/post', postData)
       .then(() => navigate('/home'))
       .catch((error) => console.error(error))
   }

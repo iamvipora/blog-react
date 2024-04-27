@@ -5,7 +5,7 @@ function Post(props) {
     const newDate = new Date(date)
     return newDate.toLocaleString('en-US')
   }
-  // console.log(props)
+
   return (
     <div className='w-full px-4 py-2 flex flex-col rounded-md border-2 bg-slate-800 hover:bg-slate-700 border-slate-500 cursor-pointer'>
       <div className='flex justify-between pb-4'>

@@ -7,7 +7,7 @@ import Error from './Error.jsx'
 function View() {
   const { id } = useParams()
   const navigate = useNavigate()
-
+  const env = import.meta.env.VITE_SERVER_URL
   const [APIData, setAPIData] = useState ([])
   const [editContentHeight, setEditContentHeight] = useState('auto')
   const [isOnEdit, setIsOnEdit] = useState(true)
@@ -21,10 +21,9 @@ function View() {
   }, [APIData])
 
   const getData = () => {
-    axios.get(import.meta.env.SERVER_URL+`/post/${id}`)
+    axios.get(env+`/post/${id}`)
       .then((response) => {
         setAPIData(response.data)
-        console.log(response.data)
       })
       .catch((error) => {
         console.error(error)
@@ -49,7 +48,7 @@ function View() {
   }
 
   const handleDelete = () => {
-    axios.delete(import.meta.env.SERVER_URL+`/post/${id}`)
+    axios.delete(env+`/post/${id}`)
       .then(() => navigate('/home'))
       .catch((error) => console.error(error))
   }
@@ -58,7 +57,7 @@ function View() {
     e.preventDefault()
     e.stopPropagation()
     
-    axios.patch(import.meta.env.SERVER_URL+`/post/${id}`, APIData)
+    axios.patch(env+`/post/${id}`, APIData)
       .then(() => navigate('/home'))
       .catch((error) => console.error(error))
   }
