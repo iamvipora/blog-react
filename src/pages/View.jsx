@@ -6,6 +6,7 @@ import Error from './Error.jsx'
 
 function View() {
   const { id } = useParams()
+  const userID = localStorage.getItem('id')
   const navigate = useNavigate()
   const env = import.meta.env.VITE_SERVER_URL
   const [APIData, setAPIData] = useState ([])
@@ -111,7 +112,7 @@ function View() {
               </button>
             </div> 
             :
-            APIData.userId !== id &&
+            APIData.userId == userID &&
             <div className='flex gap-4'>
               <button
                 type='button'
