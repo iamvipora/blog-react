@@ -10,6 +10,7 @@ const DeleteModal = (props) => {
     .then(() => {
       localStorage.removeItem('userName')
       localStorage.removeItem('id')
+      
       navigate('/')
     })
     .catch((error) => console.error(error)) 
