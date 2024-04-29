@@ -30,17 +30,21 @@ function Create() {
   }
 
   return (
-    <div className='h-screen xl:px-[30rem] md:px-10 px-3 py-10 bg-slate-900 text-white'>
+    <div className='h-screen px-3 py-10 md:px-24 xl:px-48 2xl:px-[26rem] bg-slate-900 text-white'>
       <form onSubmit={(e) => handleSubmit(e)} className='flex flex-col gap-4'>
         <div className='rounded-md border-2 bg-slate-800 border-slate-500 p-3'>
           <input 
             className='w-full rounded-md px-2 py-1 bg-slate-600 focus:outline-none' 
-            type="text" 
+            type='text'
+            autoComplete='off' 
             name='title'
-            placeholder='Title' 
+            placeholder='Title ' 
             value={postData.title} 
             onChange={(e) => handleChange(e)} 
-            required/>
+            required
+            maxLength={60}
+            />
+            <span className={`pl-2 ${postData.title.length === 60 ? 'text-red-500' : 'text-gray-500'}`}>Character limit: {postData.title.length}/60</span>          
         </div>
         <div className='rounded-md border-2 bg-slate-800 border-slate-500 p-3'>
           <textarea 

@@ -2,16 +2,22 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import Error from './Error.jsx'
+import DeleteModal from '../components/DeleteModal'
 
 
 function View() {
   const { id } = useParams()
   const userID = localStorage.getItem('id')
-  const navigate = useNavigate()
+  
   const env = import.meta.env.VITE_SERVER_URL
+
+  const navigate = useNavigate()
+
   const [APIData, setAPIData] = useState ([])
   const [editContentHeight, setEditContentHeight] = useState('auto')
+
   const [isOnEdit, setIsOnEdit] = useState(true)
+  const [toggleModal, setToggleModal] = useState(false)
 
   useEffect(() => {
     getData()
@@ -65,7 +71,16 @@ function View() {
   if (!APIData) return <Error/>
   
   return (
-    <div className='h-screen xl:px-[30rem] md:px-10 px-3 py-10 bg-slate-900 text-white'>
+    <div className='h-screen px-3 py-10 md:px-24 xl:px-48 2xl:px-[26rem] bg-slate-900 text-white'>
+      {toggleModal &&
+        <div className='h-screen w-screen backdrop-blur-sm fixed z-10 flex justify-center items-center top-0 left-0'>
+          <DeleteModal
+            toggleModal={setToggleModal}
+            deletePost={handleDelete}
+            view={true}
+          />
+        </div>
+      }
       <form onSubmit={(e) => handleSubmit(e)} className='flex flex-col gap-4'>
         <div className='rounded-md border-2 bg-slate-800 border-slate-500 p-3'>
           <input 
@@ -123,7 +138,7 @@ function View() {
               <button
                 type='button'
                 className='rounded-md border-2 bg-slate-800 hover:bg-slate-700 border-slate-500 w-20 text-center'
-                onClick={handleDelete}>
+                onClick={() => setToggleModal(true)}>
                 Delete
               </button>
             </div>

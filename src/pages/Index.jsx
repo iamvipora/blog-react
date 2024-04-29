@@ -33,7 +33,7 @@ function Index() {
 
   return (
     <>
-      <div className='h-screen flex items-center xl:px-96 md:px-10 px-3 align-center bg-slate-900 text-white'>
+      <div className='h-screen flex items-center px-3 md:px-10 xl:px-48 2xl:px-[26rem] align-center bg-slate-900 text-white'>
         <div className='h-3/4 md:h-1/2 py-8 flex flex-col y-evenly'>
           <h1 className='text-7xl'>
             Temp. Feelings
@@ -41,19 +41,19 @@ function Index() {
             <p className='text-orange-400'>Blog App</p>
           </h1>
           <p className='text-lg font-light pt-9'>
-            Life can be miserable sometimes, so we made a blog app for you to anonymously rant online.
+            Life can be miserable sometimes, so I made a blog app for you to anonymously rant online.
           </p>
           <form onSubmit={handleSubmit}>
             <input
-              name="userName"
+              name='userName'
               placeholder="What should we call you?" 
               onChange={handleChange}
               value={userName}
-              type="text" 
+              type='text'
               autoComplete='off'
               maxLength={16}
-              className="bg-transparent w-full border-b text-2xl md:text-5xl xl:text-6xl border-orange-900 focus:border-orange-400 mr-3 py-1 px-2 leading-tight focus:outline-none"
-            />
+              className='bg-transparent w-full border-b text-2xl md:text-5xl xl:text-6xl border-orange-900 focus:border-orange-400 mr-3 py-1 px-2 leading-tight focus:outline-none'
+            />  
             {userName.length > 0 
             && 
             <button
