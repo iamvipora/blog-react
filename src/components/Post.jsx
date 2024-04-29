@@ -9,11 +9,11 @@ function Post(props) {
   return (
     <div className='w-full px-4 py-2 flex flex-col rounded-md border-2 bg-slate-800 hover:bg-slate-700 border-slate-500 cursor-pointer'>
       <div className='flex justify-between pb-4'>
-        <p className='text-2xl truncate w-3/5 sm:w-4/6 lg:w-3/4'>{props.data.title}</p>
+        <p className='text-2xl truncate w-1/2 sm:w-4/6 lg:w-3/4'>{props.data.title}</p>
         <p>{parseDate(props.data.updatedAt)}</p>
       </div>
       <div className='flex justify-between'>
-        <p className='text-slate-500 truncate w-3/5 sm:w-4/6 lg:w-3/4'>{props.data.content}</p>
+        <p className='text-slate-500 truncate w-1/2 sm:w-4/6 lg:w-3/4'>{props.data.content}</p>
         <p className='underline'>u/{props.data.user.userName}</p>
       </div> 
     </div>  
