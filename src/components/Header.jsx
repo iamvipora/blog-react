@@ -5,7 +5,7 @@ import DeleteModal from './DeleteModal'
 
 function Header() { 
 
-  const [ toggleModal, setToggleModal] = useState(false)
+  const [toggleModal, setToggleModal] = useState(false)
 
   return (
     <header>
